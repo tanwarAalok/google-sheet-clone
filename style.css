@@ -7,6 +7,8 @@ body{
     padding: 0;
 }
 
+/******************* Page Action Container ********************************/
+
 .page-action-container{
     height: 3rem;
     background-color: #218c74;
@@ -19,6 +21,7 @@ body{
     margin: 0.5rem;
     color: #f1f2f6;
 }
+/******************* Cell Props Action Container ********************************/
 
 .cellprops-action-container{
     height: 3rem;
@@ -37,14 +40,96 @@ body{
     border-radius: 2px;
     outline: none;
 }
+
+/******************* Formula Action Container ********************************/
 .formula-action-container{
-    height: 3rem;
-    background-color: lightblue;
+    height: 2rem;
+    background-color: #ecf0f1;
     padding-left: 1rem;
+    display: flex;
+    align-items: center;
 }
+.formula-action-container > * {
+    display: inline-block;
+    margin-right: 0.7rem;
+}
+.formula-action-container > input{
+    border: none;
+    outline: none;
+    height: 70%;
+}
+.formula-icon{
+    height: 1.2rem;
+    width: 1.2rem;
+}
+.address-bar{
+    width: 5rem;
+    text-align: center ;
+}
+.formula-bar{
+    width: calc(100vw - 5rem - 0.7rem - 0.7rem - 0.7rem - 1.2rem);
+}
+
+/******************* Grid Action Container ********************************/
+
 .grid-action-container{
-    height: calc(100vh - 12rem);
+    height: calc(100vh - 11rem);
+    position: relative;
+    overflow: scroll;
+    background-color: #ecf0f1;
 }
+.top-left-dummy{
+    height: 2rem;
+    width: 2rem;
+    background-color: #747d8c;
+    position: fixed;
+    z-index: 2;
+}
+.address-col-container{
+    width: 2rem;
+    position: sticky;
+    top: 2rem;
+    left: 0;
+}
+.cells-container{
+    position: absolute;
+    top: 0;
+    left: 2rem;
+}
+.address-row-container{
+    height: 2rem;
+    display: flex;
+    position: sticky;
+    top: 0;
+    left: 2rem;
+}
+.address-col{
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #dfe4ea;
+}
+.address-row{
+    height: 2rem;
+    width: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #dfe4ea;
+}
+.cell-row{
+    display: flex;
+}
+.cell{
+    height: 2rem;
+    width: 5rem;
+    border: 1px solid #dfe4ea;
+    outline: none;
+}
+
+/******************* Sheet Action Container ********************************/
 
 .sheet-action-container{
     height: 3rem;
