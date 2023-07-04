@@ -34,11 +34,25 @@ body{
     display: inline-block;
     margin-right: 1rem;
 }
+.cellprops-action-container > *:hover{
+    cursor: pointer;
+}
 .cellprops-action-container > select{
     border: none;
     padding: 0.2rem;
     border-radius: 2px;
     outline: none;
+}
+.color-prop{
+    position: relative;
+}
+.color-prop > input{
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }
 
 /******************* Formula Action Container ********************************/

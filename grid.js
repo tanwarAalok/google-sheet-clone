@@ -19,13 +19,18 @@ for(let i = 0; i<cols; i++){
     addressRowContainer.appendChild(addressRow);
 }
 
-for(let row = 1; row <= rows; row++){
+for(let row = 0; row < rows; row++){
     let cellRow = document.createElement("div");
     cellRow.setAttribute("class", "cell-row");
-    for(let col = 1; col <= cols; col++){
+    for(let col = 0; col < cols; col++){
         let cell = document.createElement("div");
         cell.setAttribute("class", "cell");
         cell.setAttribute("contenteditable", "true");
+        cell.setAttribute("spellcheck", "false");
+
+        cell.setAttribute("rowId", row);
+        cell.setAttribute("colId", col);
+
         cellRow.appendChild(cell);
         addressBarDisplay(cell, row, col);
     }
@@ -34,8 +39,12 @@ for(let row = 1; row <= rows; row++){
 
 function addressBarDisplay(cell, row, col){
     cell.addEventListener('click', (e) => {
-        let rowId = row;
-        let colId = String.fromCharCode(64+col);
+        let rowId = row+1;
+        let colId = String.fromCharCode(65+col);
         addressBar.value = `${colId}${rowId}`;
     })
 }
+
+// By default first cell should be active
+let firstCell = document.querySelector(".cell");
+firstCell.click();
