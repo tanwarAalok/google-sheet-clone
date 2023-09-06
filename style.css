@@ -162,13 +162,24 @@ body{
     width: calc(100vw - 2vw);
     display: flex;
     align-items: center;
+    overflow: auto;
 }
 .sheet-add-icon{
     width: 2vw;
+    cursor: pointer;
 }
+
 .sheet-folder{
+    height: 80%;
+    display: grid;
+    place-items: center;
     text-decoration: underline;
     font-weight: bold;
     font-size: 0.9rem;
     text-decoration-thickness: 3px;
+    cursor: pointer;
+    text-align: center;
+}
+.sheet-content{
+    width: 5rem;
 }

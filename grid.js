@@ -6,6 +6,7 @@ let addressRowContainer = document.querySelector(".address-row-container");
 let cellsContainer = document.querySelector(".cells-container");
 let addressBar = document.querySelector(".address-bar");
 
+
 for(let i = 0; i<rows; i++){
     let addressCol = document.createElement("div");
     addressCol.setAttribute("class", "address-col");
@@ -45,6 +46,3 @@ function addressBarDisplay(cell, row, col){
     })
 }
 
-// By default first cell should be active
-let firstCell = document.querySelector(".cell");
-firstCell.click();

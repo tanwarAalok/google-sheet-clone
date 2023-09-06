@@ -1,25 +1,10 @@
 // Storage
+let allSheetsDB = [];
 let sheetDB = [];
 
-for(let i = 0; i<rows; i++){
-    let sheetRow = [];
-    for(let j = 0; j<cols; j++){
-        let cellProp = {
-            bold: false,
-            italic: false,
-            underline: false,
-            alignment: "left",
-            fontFamily: "monospace",
-            fontSize: "14",
-            fontColor: "#000000",
-            BGColor: "#ecf0f1",
-            value: "",
-            formula: "",
-            children: []
-        };
-        sheetRow.push(cellProp)
-    }
-    sheetDB.push(sheetRow);
+{
+    let sheetAddBtn = document.querySelector(".sheet-add-icon");
+    sheetAddBtn.click();
 }
 
 // Selectors for cell properties
@@ -176,7 +161,7 @@ function defaultCellProperties(cell){
 
         let formulaBar = document.querySelector(".formula-bar");
         formulaBar.value = cellProp.formula;
-        cell.value = cellProp.value;
+        cell.innerText = cellProp.value;
 
     })
 }
