@@ -24,11 +24,11 @@ function isGraphCycle(){
         for(let j = 0; j<cols; j++){
             if(!visited[i][j]){
                 let response = dfsCycleDetection(i, j, visited, dfsVisited);
-                if(response) return true;
+                if(response) return [i, j];
             }
         }
     }
-    return false;
+    return null;
 }
 
 function dfsCycleDetection(row, col, visited, dfsVisited){
