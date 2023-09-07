@@ -124,46 +124,48 @@ function defaultCellProperties(cell){
         let address = addressBar.value;
         let [rowId, colId] = decodeRowIdColId(address);
         let cellProp = sheetDB[rowId][colId];
-
-        cell.style.fontWeight = cellProp.bold ? "bold" : "normal";
-        cell.style.fontStyle = cellProp.italic ? "italic" : "normal";
-        cell.style.textDecoration = cellProp.underline ? "underline" : "unset";
-        cell.style.fontSize = cellProp.fontSize + "px";
-        cell.style.fontFamily = cellProp.fontFamily;
-        cell.style.color = cellProp.fontColor;
-        cell.style.backgroundColor = cellProp.BGColor;
-        cell.style.textAlign = cellProp.alignment;
-
-        bold.style.backgroundColor = cellProp.bold ? activeColorProp : inactiveColorProp;
-        italic.style.backgroundColor = cellProp.italic ? activeColorProp : inactiveColorProp
-        underline.style.backgroundColor = cellProp.underline ? activeColorProp : inactiveColorProp
-        fontSize.value = cellProp.fontSize;
-        fontColor.value = cellProp.fontColor;
-        fontFamily.value = cellProp.fontFamily;
-        BGColor.value = cellProp.BGColor;
-        switch (cellProp.alignment){
-            case "left":
-                leftAlign.style.backgroundColor = activeColorProp;
-                centerAlign.style.backgroundColor = inactiveColorProp;
-                rightAlign.style.backgroundColor = inactiveColorProp;
-                break;
-            case "center":
-                leftAlign.style.backgroundColor = inactiveColorProp;
-                centerAlign.style.backgroundColor = activeColorProp;
-                rightAlign.style.backgroundColor = inactiveColorProp;
-                break;
-            case "right":
-                leftAlign.style.backgroundColor = inactiveColorProp;
-                centerAlign.style.backgroundColor = inactiveColorProp;
-                rightAlign.style.backgroundColor = activeColorProp;
-                break;
-        }
-
-        let formulaBar = document.querySelector(".formula-bar");
-        formulaBar.value = cellProp.formula;
-        cell.innerText = cellProp.value;
-
+        updateCellPropsUI(cell, cellProp);
     })
+}
+
+function updateCellPropsUI(cell, cellProp){
+    cell.style.fontWeight = cellProp.bold ? "bold" : "normal";
+    cell.style.fontStyle = cellProp.italic ? "italic" : "normal";
+    cell.style.textDecoration = cellProp.underline ? "underline" : "unset";
+    cell.style.fontSize = cellProp.fontSize + "px";
+    cell.style.fontFamily = cellProp.fontFamily;
+    cell.style.color = cellProp.fontColor;
+    cell.style.backgroundColor = cellProp.BGColor;
+    cell.style.textAlign = cellProp.alignment;
+
+    bold.style.backgroundColor = cellProp.bold ? activeColorProp : inactiveColorProp;
+    italic.style.backgroundColor = cellProp.italic ? activeColorProp : inactiveColorProp
+    underline.style.backgroundColor = cellProp.underline ? activeColorProp : inactiveColorProp
+    fontSize.value = cellProp.fontSize;
+    fontColor.value = cellProp.fontColor;
+    fontFamily.value = cellProp.fontFamily;
+    BGColor.value = cellProp.BGColor;
+    switch (cellProp.alignment){
+        case "left":
+            leftAlign.style.backgroundColor = activeColorProp;
+            centerAlign.style.backgroundColor = inactiveColorProp;
+            rightAlign.style.backgroundColor = inactiveColorProp;
+            break;
+        case "center":
+            leftAlign.style.backgroundColor = inactiveColorProp;
+            centerAlign.style.backgroundColor = activeColorProp;
+            rightAlign.style.backgroundColor = inactiveColorProp;
+            break;
+        case "right":
+            leftAlign.style.backgroundColor = inactiveColorProp;
+            centerAlign.style.backgroundColor = inactiveColorProp;
+            rightAlign.style.backgroundColor = activeColorProp;
+            break;
+    }
+
+    let formulaBar = document.querySelector(".formula-bar");
+    formulaBar.value = cellProp.formula;
+    cell.innerText = cellProp.value;
 }
 
 function getActiveCellAndProps(address){
